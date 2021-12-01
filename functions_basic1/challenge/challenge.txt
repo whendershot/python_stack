@@ -1,0 +1,7 @@
+Assignment: Functions Basic I
+Objectives:
+Avoid common mistakes of using functions
+Really understand how to use T-diagram to correctly predict and debug codes
+Downloads:
+Functions Basic I Download
+https://s3.us-east-1.amazonaws.com/General_V88/boomyeah2015/codingdojo/curriculum/content/chapter/1623166893__functions_basic_i.zip
