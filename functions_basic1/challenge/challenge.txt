@@ -5,3 +5,4 @@ Really understand how to use T-diagram to correctly predict and debug codes
 Downloads:
 Functions Basic I Download
 https://s3.us-east-1.amazonaws.com/General_V88/boomyeah2015/codingdojo/curriculum/content/chapter/1623166893__functions_basic_i.zip
+For each of the following code snippets, first predict the output (what you will see printed to the terminal). Once you've made a prediction, run the code snippet to see if you are correct!
