@@ -27,10 +27,10 @@ class User:
         return self
 
     def display_user_balance(self):
-        sum = 0
+        result = 0
         for id, account in self.accounts.items():
-            sum += account.balance
-        print(f"User: {self.name}, Balance: ${sum}")
+            result += account.balance
+        print(f"User: {self.name}, Balance: ${result}")
 
     def transfer_money(self, other_user, destination_account_id, source_account_id, amount):
         source_account = self.accounts[source_account_id]
@@ -59,10 +59,10 @@ class BankAccount:
 
     @classmethod
     def all_balances(cls):
-        sum = 0
+        result = 0
         for account in cls.all_accounts:
-            sum += account.balance
-        return sum
+            result += account.balance
+        return result
 
     @classmethod
     def display_all_accounts(cls):
