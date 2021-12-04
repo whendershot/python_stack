@@ -74,10 +74,12 @@ class SList:
         pointer = self.head
         while (pointer.next and pointer.next.value != val):
             pointer = pointer.next
-        
-        result = pointer.next.value
-        pointer.next = pointer.next.next
-        return result
+
+        if pointer.next:
+            result = pointer.next.value
+            pointer.next = pointer.next.next
+            return result        
+        raise IndexError(f"Value ({val}) does not exist in the list.")
 
     def insert_at(self, val, n):
         if n < 0:
@@ -117,6 +119,12 @@ if __name__ == "__main__":
 
     my_list.add_to_back("I'm a little teapot")
     my_list.remove_value(42)
+    my_list.print_values()
+
+    try:
+        my_list.remove_value(42)
+    except IndexError:
+        print("Oops! I already took that one out!")
     my_list.print_values()
 
     my_list.remove_value("The universe: ")
