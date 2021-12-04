@@ -23,12 +23,12 @@ This implies we have already created the Node class. We did this in the previous
     class SLNode:
         def __init__(self, val):
             self.value = val
-            self.next = Nonecopy
+            self.next = None
 We want this new node to be the front of our list, but let's not be too hasty. Since the only node we have a reference to in our list is the head, if we replace it right away, we'll lose our reference to the current head, so let's save it before moving forward:
 
 	def add_to_front(self, val):
             new_node = SLNode(val)
-            current_head = self.head	# save the current head in a variablecopy
+            current_head = self.head	# save the current head in a variable
 Currently our new node doesn't have a neighbor. Because we're trying to add this new node to the front, we now know its neighbor should be the current head that we just saved:
 
 	def add_to_front(self, val):
@@ -50,7 +50,7 @@ Since this is pretty abstract, it might be helpful to have a function that goes 
 
 This method won't require any input:
 
-	def print_values(self):copy
+	def print_values(self):
 We need to start at the front of our list, so let's create a pointer to our first node:
 
 	def print_values(self):
@@ -72,7 +72,7 @@ Then, we need to "increment" our runner to the next node, or update the runner s
             runner = self.head
             while (runner != None):
                 print(runner.value)
-        	runner = runner.next 	# set the runner to its neighbor
+        	    runner = runner.next 	# set the runner to its neighbor
             return self	                # once the loop is done, return self to allow for chainingcopy
 Traversing Through a List and Adding a Value to the End
 Let's practice traversing one more time. If we want to add a new node anywhere in our list, it just needs to become a neighbor of an existing node. To become the last node in our list, the list's current last node needs to point to this new node.
@@ -121,7 +121,7 @@ Consider the edge case where our list is empty. In that case, adding to the fron
             while (runner.next != None):
                 runner = runner.next
             runner.next = new_node	# increment the runner to the next node in the list
-            return self                 # return self to allow for chainingcopy
+            return self                 # return self to allow for chaining
 Let's test our class!
 
 my_list = SList()	# create a new instance of a list
