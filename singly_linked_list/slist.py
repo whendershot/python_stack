@@ -65,7 +65,35 @@ class SList:
         return result
 
     def remove_value(self, val):
-        pass
+        if not self.head:
+            raise IndexError("List is empty.")
+
+        if self.head.value == val:
+            return self.remove_from_front()
+
+        pointer = self.head
+        while (pointer.next and pointer.next.value != val):
+            pointer = pointer.next
+        
+        result = pointer.next.value
+        pointer.next = pointer.next.next
+        return result
+
+    def insert_at(self, val, n):
+        if n < 0:
+            raise IndexError("n must be 0 or a positive integer.")
+
+        if not self.head or n == 0:
+            self.add_to_front(val)
+        else:
+            pointer = self.head
+            n -= 1
+            while pointer.next and n > 0:
+                n -= 1
+                pointer = pointer.next
+            new_node = SLNode(val)
+            new_node.next = pointer.next
+            pointer.next = new_node
 
 if __name__ == "__main__":
     my_list = SList()
@@ -83,4 +111,34 @@ if __name__ == "__main__":
     except IndexError:
         print("Oops! the list is empty now!")
 
-my_list.add_to_back()
+    my_list.add_to_back(42)
+    my_list.add_to_front("The universe: ")
+    my_list.print_values()
+
+    my_list.add_to_back("I'm a little teapot")
+    my_list.remove_value(42)
+    my_list.print_values()
+
+    my_list.remove_value("The universe: ")
+    my_list.print_values()
+
+    my_list.remove_value("I'm a little teapot")
+    try:
+        my_list.print_values()
+    except IndexError:
+        print("Oops! the list is empty now!")
+
+    my_list.insert_at("I love linked lists!", 6)
+    my_list.print_values()
+
+    my_list.insert_at(22, 0)
+    my_list.print_values()
+
+    my_list.insert_at(44, 1)
+    my_list.print_values()
+
+    my_list.insert_at(33, 1)
+    my_list.print_values()
+
+    my_list.insert_at("But this one is a little far out maybe?", 12345)
+    my_list.print_values()
