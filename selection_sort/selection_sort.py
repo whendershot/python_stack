@@ -1,6 +1,6 @@
 import random
 
-def selection_sort(a_list) -> list:
+def selection_sort(a_list) -> None:
     for i in range(0, len(a_list)):
         smallest_index = i
         for j in range(i, len(a_list)):
